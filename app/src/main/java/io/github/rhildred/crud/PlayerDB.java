@@ -1,10 +1,12 @@
 package io.github.rhildred.crud;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +29,7 @@ public class PlayerDB {
         @Override
         public void onCreate(SQLiteDatabase db) {
             // create tables
-            db.execSQL("CREATE TABLE \"players\" (\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , \"name\" VARCHAR NOT NULL , \"wins\" INTEGER NOT NULL  DEFAULT 0, \"losses\" INTEGER NOT NULL  DEFAULT 0, \"ties\" INTEGER NOT NULL  DEFAULT 0)");
+            db.execSQL("CREATE TABLE players (id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , name VARCHAR NOT NULL , wins INTEGER NOT NULL  DEFAULT 0, losses INTEGER NOT NULL  DEFAULT 0, ties INTEGER NOT NULL  DEFAULT 0)");
             //insert some players
             db.execSQL("INSERT INTO players(name) VALUES('Rich')");
             db.execSQL("INSERT INTO players(name) VALUES('Steve')");
@@ -70,6 +72,7 @@ public class PlayerDB {
         if (db != null)
             db.close();
     }
+
     ArrayList<HashMap<String, String>> getPlayers(){
         ArrayList<HashMap<String, String>> data =
                 new ArrayList<HashMap<String, String>>();
@@ -88,5 +91,15 @@ public class PlayerDB {
         closeDB();
 
         return data;
+    }
+
+    void insertPlayer(String sName)throws Exception{
+
+        openWriteableDB();
+        ContentValues content = new ContentValues();
+        content.put("name", sName);
+        long nResult = db.insert("players",null, content);
+        if(nResult == -1) throw new Exception("no data");
+        closeDB();
     }
 }
