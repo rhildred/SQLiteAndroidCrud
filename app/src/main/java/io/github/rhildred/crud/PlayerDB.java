@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class PlayerDB {
     // database constants
-    public static final String DB_NAME = "tasklist.db";
+    public static final String DB_NAME = "player.sqlite";
     public static final int    DB_VERSION = 1;
     private static class DBHelper extends SQLiteOpenHelper {
 
@@ -30,12 +30,7 @@ public class PlayerDB {
         public void onCreate(SQLiteDatabase db) {
             // create tables
             db.execSQL("CREATE TABLE players (id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , name VARCHAR NOT NULL , wins INTEGER NOT NULL  DEFAULT 0, losses INTEGER NOT NULL  DEFAULT 0, ties INTEGER NOT NULL  DEFAULT 0)");
-            //insert some players
-            db.execSQL("INSERT INTO players(name) VALUES('Rich')");
-            db.execSQL("INSERT INTO players(name) VALUES('Steve')");
-            db.execSQL("INSERT INTO players(name) VALUES('Tanesha')");
-            db.execSQL("INSERT INTO players(name) VALUES('Sulim')");
-        }
+         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db,
