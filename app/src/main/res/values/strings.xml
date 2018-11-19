@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">CRUD</string>
     <string name="items_title">Players</string>
+    <string name="name_title">Name</string>
+    <string name="wins_title">Wins</string>
+    <string name="ties_title">Ties</string>
+    <string name="losses_title">Losses</string>
 </resources>

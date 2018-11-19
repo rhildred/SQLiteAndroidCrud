@@ -35,6 +35,50 @@
             android:textSize="20sp"
             />
         </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/nameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:text="@string/name_title"
+            android:layout_weight="40"
+            />
+
+        <TextView
+            android:id="@+id/winsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="24sp"
+            android:layout_weight="20"
+            android:text="@string/wins_title"/>
+        <TextView
+            android:id="@+id/lossesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="24sp"
+            android:layout_weight="20"
+
+            android:text="@string/losses_title"/>
+        <TextView
+            android:id="@+id/tiesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="24sp"
+            android:layout_weight="20"
+
+            android:text="@string/ties_title"/>
+    </LinearLayout>
     <ListView
         android:id="@+id/itemsListView"
         android:layout_width="match_parent"
