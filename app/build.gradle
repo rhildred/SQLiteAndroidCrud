@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "io.github.rhildred.crud"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -22,5 +22,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:23.4.0'
+    implementation 'com.android.support:appcompat-v7:26.+'
+}
+
+allprojects{
+    repositories{
+        google()
+        jcenter()
+    }
 }
