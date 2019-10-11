@@ -79,8 +79,8 @@
 
             android:text="@string/ties_title"/>
     </LinearLayout>
-    <ListView
-        android:id="@+id/itemsListView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/itemsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
