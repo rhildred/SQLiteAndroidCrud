@@ -1,6 +1,7 @@
 package io.github.rhildred.crud;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -41,16 +42,22 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View v = LayoutInflater.from(parent.getContext()).inflate(this.resource,parent, false);
+        return new MyViewHolder(v);
+
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        HashMap<String, String> map = this.data.get(position);
+        for(int nPosition = 0; nPosition < this.from.length; nPosition++){
+            String sKey = this.from[nPosition];
+            ((MyViewHolder)holder).aTexts.get(nPosition).setText(map.get(sKey));
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.data.size();
     }
 }
