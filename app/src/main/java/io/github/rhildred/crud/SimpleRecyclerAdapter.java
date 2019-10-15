@@ -32,8 +32,9 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         public MyViewHolder(View view) {
             super(view);
             this.aTexts = new ArrayList<TextView>();
-            countryText = (TextView) view.findViewById(R.id.countryName);
-            popText = (TextView) view.findViewById(R.id.pop);
+            for(int nId: SimpleRecyclerAdapter.this.to){
+                this.aTexts.add( (TextView) view.findViewById(nId));
+            }
         }
     }
 
