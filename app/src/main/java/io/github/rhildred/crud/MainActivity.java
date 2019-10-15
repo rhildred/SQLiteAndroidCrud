@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.support.v7.widget.RecyclerView;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
-    implements View.OnClickListener{
-    private RecyclerView itemsListView;
+        implements View.OnClickListener{
+    private ListView itemsListView;
     private EditText oNameEdit;
     private Button oNameInsert;
     private PlayerDB db;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        itemsListView = (RecyclerView) findViewById(R.id.itemsRecyclerView);
+        itemsListView = (ListView) findViewById(R.id.itemsListView);
         oNameEdit = (EditText) findViewById(R.id.nameEditText);
         oNameInsert = (Button) findViewById(R.id.insertButton);
         oNameInsert.setOnClickListener(this);
@@ -56,8 +55,8 @@ public class MainActivity extends AppCompatActivity
         int[] to = {R.id.nameTextView, R.id.winsTextView, R.id.lossesTextView, R.id.tiesTextView};
 
         // create and set the adapter
-        SimpleRecyclerAdapter adapter =
-                new SimpleRecyclerAdapter(this, data, resource, from, to);
+        SimpleAdapter adapter =
+                new SimpleAdapter(this, data, resource, from, to);
         itemsListView.setAdapter(adapter);
 
     }
