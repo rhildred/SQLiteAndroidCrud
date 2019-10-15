@@ -1,7 +1,10 @@
 package io.github.rhildred.crud;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +27,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         itemsListView = (RecyclerView) findViewById(R.id.itemsRecyclerView);
+//        rv.addItemDecoration(new DividerItemDecoration(ContextCompat.getDrawable(getApplicationContext(), R.drawable.item_decorator)));
+
+        itemsListView.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        itemsListView.setLayoutManager(llm);
         oNameEdit = (EditText) findViewById(R.id.nameEditText);
         oNameInsert = (Button) findViewById(R.id.insertButton);
         oNameInsert.setOnClickListener(this);
